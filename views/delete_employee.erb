@@ -41,7 +41,7 @@
     </nav>
     <div class="container-fluid">
       <div class="page-header">
-        <h1>Employees:</h1>
+        <h1>Are you sure you want to delete:</h1>
       </div>
       <table class="table table-bordered table-condensed table-hover">
         <thead>
@@ -52,7 +52,6 @@
           <th>Salary</th>
           <th>Github</th>
           <th>Slack</th>
-          <th>Links</th>
         </thead>
         <tbody>
           <% @rows.each do |row| %>
@@ -64,20 +63,15 @@
             <td><%= row["salary"] %></td>
             <td><%= row["github"] %></td>
             <td><%= row["slack"] %></td>
-            <td><a href="/show_employee?id=<%= row["id"] %>">Show More</a></td>
           </tr>
           <% end %>
         </tbody>
       </table>
-      <form class="form-inline" action="">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Name, Slack, or Github">
-          <button type="submit" class="btn btn-default">Search</button>
-        </div>
+      <form action="/delete" method="POST">
+        <a href="/employees" class="btn btn-warning">Go Back</a>
+        <button type="submit" class="btn btn-danger pull-right">Delete</button>
       </form>
-      <a href="/new_employee" class="btn btn-primary">New employee</a>
     </div>
-
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
