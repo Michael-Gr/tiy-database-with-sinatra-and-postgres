@@ -67,10 +67,8 @@
           <% end %>
         </tbody>
       </table>
-      <form action="/delete" method="POST">
-        <a href="/employees" class="btn btn-warning">Go Back</a>
-        <button type="submit" class="btn btn-danger pull-right">Delete</button>
-      </form>
+      <button href="/employees" class="btn btn-warning">Go Back</button>
+      <a href="/delete?id=<%= @id %>" class="btn btn-danger pull-right">Delete</a>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -70,15 +70,15 @@ post "/submit_edit" do
 end
 
 get "/delete_employee" do
-  id = params["id"]
+  @id = params["id"]
 
   database = PG.connect(dbname: 'tiy-database')
-  @rows = database.exec('SELECT * FROM employees where id = $1', [id])
+  @rows = database.exec('SELECT * FROM employees where id = $1', [@id])
 
   erb :delete_employee
 end
 
-post "/delete" do
+get "/delete" do
   id = params["id"]
 
   database = PG.connect(dbname: "tiy-database")
